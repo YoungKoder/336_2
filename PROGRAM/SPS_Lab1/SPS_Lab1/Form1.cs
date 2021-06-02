@@ -17,9 +17,7 @@ namespace SPS_Lab1
 {
     public partial class Form1 : Form
     {
-        // текущая таблица
         string currentTableName = "Events";
-        // Data source
         DataSet ds;
         // Класс работы с БД
         Repository rep;
@@ -116,15 +114,7 @@ namespace SPS_Lab1
             }
         }
 
-        private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            int columnIndex = e.ColumnIndex;
-            int rowIndex = e.RowIndex;
-            if (dataGridView2 != null)
-            {
-                dataGridView2.Columns[columnIndex].HeaderText = Helper.sourceColumnTextName(dataGridView2.Columns[columnIndex].Name);
-            }
-        }
+        
         //Функция инициализации dataGridView2;
         public void initializeGridView()
         {
@@ -138,7 +128,15 @@ namespace SPS_Lab1
             dataGridView2.AllowUserToAddRows = false;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
-
+        private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            int columnIndex = e.ColumnIndex;
+            int rowIndex = e.RowIndex;
+            if (dataGridView2 != null)
+            {
+                dataGridView2.Columns[columnIndex].HeaderText = Helper.sourceColumnTextName(dataGridView2.Columns[columnIndex].Name);
+            }
+        }
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
 
